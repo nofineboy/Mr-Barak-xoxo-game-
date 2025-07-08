@@ -1,19 +1,17 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class tictactoegame extends JFrame implements ActionListener {
+class TicTacToeGame extends JFrame implements ActionListener {
     private JButton[] buttons = new JButton[9];
     private boolean isPlayerOneTurn = true;
-    private final String POLAR_BEAR = "\uD83D\uDC3B\u200D\u2744\uFE0F"; // 🐻‍❄️
-    private final String FOX = "\uD83E\uDD8A";                         // 🦊
+    private final String LION = "\uD83E\uDD81"; // 🦁
+    private final String WOLF = "\uD83D\uDC3A"; // 🐺
 
-    public tictactoegame() {
+    public TicTacToeGame() {
+        JOptionPane.showMessageDialog(null, "Welcome to Tic Tac Toe!\nPlayer 1 = 🦁, Player 2 = 🐺");
 
-        JOptionPane.showMessageDialog(null, "Welcome to Tic Tac Toe!\nPlayer 1 = 🐻‍❄️, Player 2 = 🦊");
-
-        setTitle("Tic Tac Toe - Polar_bear vs Fox");
+        setTitle("Tic Tac Toe - Lion vs Wolf");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(3, 3));
@@ -37,10 +35,10 @@ class tictactoegame extends JFrame implements ActionListener {
             return;
         }
 
-        clicked.setText(isPlayerOneTurn ? POLAR_BEAR : FOX);
+        clicked.setText(isPlayerOneTurn ? LION : WOLF);
 
         if (checkWin()) {
-            JOptionPane.showMessageDialog(this, (isPlayerOneTurn ? "Player 1 (🐻‍❄️)" : "Player 2 (🦊)") + " wins!");
+            JOptionPane.showMessageDialog(this, (isPlayerOneTurn ? "Player 1 (🦁)" : "Player 2 (🐺)") + " wins!");
             restartPrompt();
         } else if (isBoardFull()) {
             JOptionPane.showMessageDialog(this, "It's a tie!");
@@ -90,6 +88,6 @@ class tictactoegame extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new tictactoegame());
+        SwingUtilities.invokeLater(() -> new TicTacToeGame());
     }
 }
