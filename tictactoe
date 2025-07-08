@@ -1,0 +1,124 @@
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton clicked = (JButton) e.getSource();
+
+        if (!clicked.getText().equals("")) {
+            return;
+        }
+
+        clicked.setText(isPlayerOneTurn ? LION : WOLF);
+
+        if (checkWin()) {
+            JOptionPane.showMessageDialog(this, (isPlayerOneTurn ? "Player 1 (🦁)" : "Player 2 (🐺)") + " wins!");
+            restartPrompt();
+        } else if (isBoardFull()) {
+            JOptionPane.showMessageDialog(this, "It's a tie!");
+            restartPrompt();
+        } else {
+            isPlayerOneTurn = !isPlayerOneTurn;
+        }
+    }
+
+    private boolean isBoardFull() {
+        for (JButton button : buttons) {
+            if (button.getText().equals("")) return false;
+        }
+        return true;
+    }
+
+    private boolean checkWin() {
+        int[][] winPatterns = {
+                {0,1,2}, {3,4,5}, {6,7,8},
+                {0,3,6}, {1,4,7}, {2,5,8},
+                {0,4,8}, {2,4,6}
+        };
+
+        for (int[] pattern : winPatterns) {
+            String a = buttons[pattern[0]].getText();
+            String b = buttons[pattern[1]].getText();
+            String c = buttons[pattern[2]].getText();
+
+            if (!a.equals("") && a.equals(b) && b.equals(c)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void restartPrompt() {
+        int option = JOptionPane.showConfirmDialog(this, "Do you want to play again?", "Restart Game", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            for (JButton button : buttons) {
+                button.setText("");
+            }
+            isPlayerOneTurn = true;
+        } else {
+            System.exit(0);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new TicTacToeGame());
+    }
+}
+Summary of Changes:
+Replaced POLAR_BEAR (🐻‍❄️) with LION (🦁)
+
+Replaced FOX (🦊) with WOLF (🐺)
+
+Updated all relevant messages and variables accordingly
+
+Renamed class to TicTacToeGame (Capitalized – Java convention)
+
+Let me know if you'd like to add background color effects, a scoreboard, or sound!
+
+
+
+
+
+
+
+
+You said:
+generate images of the code running
+
+
+ChatGPT said:
+To generate realistic images of your Tic Tac Toe game running (with 🦁 and 🐺 as players), I can simulate what it would look like using mock-up screenshots. Here's a visual representation of the game's GUI during different stages:
+
+🖼️ Image 1: Initial Game Board
+All buttons empty
+
+Title: Tic Tac Toe - Lion vs Wolf
+
+Ready for Player 1 (🦁)
+
+🖼️ Image 2: Mid-Game Example
+Board partially filled
+
+🦁 and 🐺 emojis placed in some tiles
+
+🖼️ Image 3: Winning State
+🐺 wins across a row
+
+Message box: “Player 2 (🐺) wins!”
+
+I’ll now generate these 3 simulated images.
+
+
+
+
+
+
+
+Share
+
+
+
+You said:
+generate the remaining 2 image
+
+
+ChatGPT said:
+
