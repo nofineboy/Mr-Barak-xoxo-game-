@@ -1,19 +1,19 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList; 
 
-public class TicTacToeGame extends JFrame implements ActionListener {
+class tictactoegame extends JFrame implements ActionListener {
     private JButton[] buttons = new JButton[9];
     private boolean isPlayerOneTurn = true;
-    private final String DOG = "\uD83D\uDC36";
-    private final String CAT = "\uD83D\uDC31";
+    private final String POLAR_BEAR = "\uD83D\uDC3B\u200D\u2744\uFE0F"; // 🐻‍❄️
+    private final String FOX = "\uD83E\uDD8A";                         // 🦊
 
-    public TicTacToeGame() {
+    public tictactoegame() {
 
-        JOptionPane.showMessageDialog(null, "Welcome to Tic Tac Toe!\nPlayer 1 = 🐶, Player 2 = 🐱");
+        JOptionPane.showMessageDialog(null, "Welcome to Tic Tac Toe!\nPlayer 1 = 🐻‍❄️, Player 2 = 🦊");
 
-        setTitle("Tic Tac Toe - Dog vs Cat");
+        setTitle("Tic Tac Toe - Polar_bear vs Fox");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(3, 3));
@@ -37,13 +37,13 @@ public class TicTacToeGame extends JFrame implements ActionListener {
             return;
         }
 
-        clicked.setText(isPlayerOneTurn ? DOG : CAT);
+        clicked.setText(isPlayerOneTurn ? POLAR_BEAR : FOX);
 
         if (checkWin()) {
-            JOptionPane.showMessageDialog(this, (isPlayerOneTurn ? "Player 1 (🐶)" : "Player 2 (🐱)") + " wins!");
+            JOptionPane.showMessageDialog(this, (isPlayerOneTurn ? "Player 1 (🐻‍❄️)" : "Player 2 (🦊)") + " wins!");
             restartPrompt();
         } else if (isBoardFull()) {
-            JOptionPane.showMessageDialog(this, "It's a draw!");
+            JOptionPane.showMessageDialog(this, "It's a tie!");
             restartPrompt();
         } else {
             isPlayerOneTurn = !isPlayerOneTurn;
@@ -90,6 +90,6 @@ public class TicTacToeGame extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new TicTacToeGame());
+        SwingUtilities.invokeLater(() -> new tictactoegame());
     }
 }
