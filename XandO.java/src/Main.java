@@ -1,12 +1,9 @@
-void drawGrid(){
-    myPanel.add(btn1);
-    myPanel.add(btn2);
-    myPanel.add(btn3);
-    myPanel.add(btn4);
-    myPanel.add(btn5);
-    myPanel.add(btn6);
-    myPanel.add(btn7);
-    myPanel.add(btn8);
-    myPanel.add(btn9);
-    // Action listeners...
-}
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class tictactoegame extends JFrame implements ActionListener {
+    private JButton[] buttons = new JButton[9];
+    private boolean isPlayerOneTurn = true;
+    private final String POLAR_BEAR = "\uD83D\uDC3B\u200D\u2744\uFE0F"; // 🐻‍❄️
+    private final String FOX = "\uD83E\uDD8A";                         // 🦊
