@@ -1,0 +1,41 @@
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+
+public class XandOButton {
+
+    static int flag = 0;
+    static ArrayList<Integer> playerOne = new ArrayList<>();
+    static ArrayList<Integer> playerTwo = new ArrayList<>();
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("X and O Game");
+        frame.setSize(300, 300);
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton btn1 = new JButton();
+        btn1.setBounds(50, 50, 60, 60);
+        frame.add(btn1);
+
+        btn1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (flag == 0) {
+                    playerOne.add(1);
+                    btn1.setEnabled(false);
+                    btn1.setText("X");
+                    flag = 1;
+                } else if (flag == 1) {
+                    playerTwo.add(1);
+                    btn1.setEnabled(false);
+                    btn1.setText("0");
+                    flag = 0;
+                }
+            }
+        });
+
+        frame.setVisible(true);
+    }
+}
