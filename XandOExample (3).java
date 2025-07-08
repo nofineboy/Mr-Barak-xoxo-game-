@@ -1,12 +1,7 @@
+public TicTacToeGame() {
+        JOptionPane.showMessageDialog(null, "Welcome to Tic Tac Toe!\nPlayer 1 = 🦁, Player 2 = 🐺");
 
-package XandO;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-public class XandOExample {
-    // Code here...
-}
+        setTitle("Tic Tac Toe - Lion vs Wolf");
+        setSize(400, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(3, 3));
